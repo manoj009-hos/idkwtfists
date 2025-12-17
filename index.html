@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio | HTML & CSS Only</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- THEME TOGGLE -->
+  <input type="checkbox" id="theme-toggle" hidden>
+
+  <div class="app">
+
+    <header class="header">
+      <h1>Manoj Naidu</h1>
+      <p>Frontend Developer | HTML & CSS Specialist</p>
+      <label for="theme-toggle" class="theme-btn">Toggle Theme</label>
+    </header>
+
+    <!-- TAB CONTROLS -->
+    <input type="radio" name="tab" id="tab-projects" checked hidden>
+    <input type="radio" name="tab" id="tab-skills" hidden>
+    <input type="radio" name="tab" id="tab-about" hidden>
+
+    <nav class="tabs">
+      <label for="tab-projects">Projects</label>
+      <label for="tab-skills">Skills</label>
+      <label for="tab-about">About</label>
+    </nav>
+
+    <!-- CONTENT -->
+    <main class="content">
+
+      <!-- PROJECTS -->
+      <section class="projects">
+        <div class="card">
+          <h3>CSS Portfolio</h3>
+          <p>Fully functional portfolio without JavaScript.</p>
+          <a href="#modal1">View Details</a>
+        </div>
+
+        <div class="card">
+          <h3>UI Components</h3>
+          <p>Tabs, modals, accordion built in CSS.</p>
+          <a href="#modal2">View Details</a>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section class="skills">
+        <div class="skill">
+          <span>HTML</span>
+          <div class="bar html"></div>
+        </div>
+        <div class="skill">
+          <span>CSS</span>
+          <div class="bar css"></div>
+        </div>
+        <div class="skill">
+          <span>Responsive Design</span>
+          <div class="bar responsive"></div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section class="about">
+        <input type="checkbox" id="exp1" hidden>
+        <label for="exp1" class="accordion-title">Experience</label>
+        <div class="accordion-content">
+          <p>
+            10+ years building performant, accessible, and scalable web interfaces.
+            Strong focus on fundamentals and constraint-driven design.
+          </p>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- MODALS -->
+  <div id="modal1" class="modal">
+    <div class="modal-box">
+      <a href="#" class="close">&times;</a>
+      <h2>CSS Portfolio</h2>
+      <p>Demonstrates advanced CSS state management without JavaScript.</p>
+    </div>
+  </div>
+
+  <div id="modal2" class="modal">
+    <div class="modal-box">
+      <a href="#" class="close">&times;</a>
+      <h2>UI Components</h2>
+      <p>Tabs, accordions, and modals implemented using pure CSS.</p>
+    </div>
+  </div>
+
+</body>
+</html>

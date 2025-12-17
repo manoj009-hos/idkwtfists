@@ -1,0 +1,179 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, sans-serif;
+}
+
+/* THEME VARIABLES */
+.app {
+  --bg: #ffffff;
+  --text: #111;
+  --accent: #2563eb;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  padding: 20px;
+}
+
+#theme-toggle:checked ~ .app {
+  --bg: #0f172a;
+  --text: #e5e7eb;
+  --accent: #38bdf8;
+}
+
+/* HEADER */
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.theme-btn {
+  display: inline-block;
+  margin-top: 10px;
+  cursor: pointer;
+  padding: 6px 12px;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+}
+
+/* TABS */
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.tabs label {
+  cursor: pointer;
+  font-weight: 600;
+  padding-bottom: 4px;
+}
+
+#tab-projects:checked ~ .tabs label[for="tab-projects"],
+#tab-skills:checked ~ .tabs label[for="tab-skills"],
+#tab-about:checked ~ .tabs label[for="tab-about"] {
+  border-bottom: 2px solid var(--accent);
+}
+
+/* CONTENT SECTIONS */
+.content section {
+  display: none;
+}
+
+#tab-projects:checked ~ .content .projects,
+#tab-skills:checked ~ .content .skills,
+#tab-about:checked ~ .content .about {
+  display: grid;
+}
+
+/* PROJECTS */
+.projects {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.card a {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* SKILLS */
+.skills {
+  gap: 20px;
+}
+
+.skill span {
+  font-weight: 600;
+}
+
+.bar {
+  height: 8px;
+  background: #ddd;
+  border-radius: 5px;
+  margin-top: 6px;
+  position: relative;
+  overflow: hidden;
+}
+
+.bar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: fill 1.2s forwards;
+}
+
+.html::after { width: 90%; }
+.css::after { width: 85%; }
+.responsive::after { width: 80%; }
+
+@keyframes fill {
+  to { transform: scaleX(1); }
+}
+
+/* ACCORDION */
+.accordion-title {
+  cursor: pointer;
+  font-weight: 600;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+#exp1:checked + .accordion-title + .accordion-content {
+  max-height: 200px;
+}
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  align-items: center;
+  justify-content: center;
+}
+
+.modal:target {
+  display: flex;
+}
+
+.modal-box {
+  background: var(--bg);
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 400px;
+}
+
+.close {
+  float: right;
+  text-decoration: none;
+  font-size: 24px;
+  color: var(--text);
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .tabs {
+    flex-direction: column;
+    align-items: center;
+  }
+}
